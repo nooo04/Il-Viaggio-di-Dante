@@ -1,0 +1,919 @@
+/*---RESET---*/
+body, html{ font-size: 16_3x; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif; box-sizing: border-box;margin: 0;padding: 0;}
+:before,*:after{ box-sizing: border-box; }
+h1,h2,h3,h4,h5,h6, p, ol, ul{margin: 0;padding: 0;}
+ol,ul{list-style-position: inside;}
+small{line-height: 1rem;}
+/*img{height: auto; width: 100%;}*/
+a{text-decoration: none;}
+hr{border:none; border-bottom: 1px solid #ddd}
+
+/*===============================Header=======================================*/
+
+
+
+
+.hero-section {
+  text-align: center;
+  padding-bottom: 200px;
+  background: #f9f9f9;
+  color: #1e2a47;
+  border-bottom: 2px solid #ccd9e0;
+
+  .h1-header {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(30px, 6vw, 45px);
+    margin-bottom: 20px;
+    color: #1e2a47;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-top: 100px;
+  }
+
+  .p-header {
+    font-size: clamp(16px, 5vw, 18px);
+    font-style: italic;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #495057;
+  }
+}
+
+
+/*======================================navbar=========================================================*/
+.custom-navbar {
+  background-color: #d9d9da;
+  border-bottom: 1px solid #ccc;
+  /*margin-bottom: 100px;*/
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center; /* 🔧 centra verticalmente logo e menu */
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  flex-wrap: wrap;
+}
+
+.navbar-logo img {
+  height: 70px;
+  width: 70px;
+}
+
+.navbar-toggle {
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: none;
+}
+
+.navbar-menu {
+  display: flex;
+  flex-basis: auto;
+  flex-grow: 1;
+  justify-content: flex-end;
+  align-items: center; /* 🔧 centra i link con il logo */
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links .li-nav .a-nav {
+  text-decoration: none;
+  color: #000;
+  padding: 0.5rem 0.75rem;
+  line-height: 70px; /* 🔧 altezza uguale al logo */
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.navbar-links .li-nav .a-nav:hover,
+.navbar-links .li-nav .a-nav.active {
+  background-color: #e2e6ea;
+}
+
+/* === MEDIA QUERY PER SCHERMI PICCOLI === */
+@media (max-width: 768px) {
+  .navbar-toggle {
+    display: block;
+  }
+
+  .navbar-menu {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    background-color: #d9d9da;
+  }
+
+  .navbar-menu.show {
+    display: flex;
+  }
+
+  .navbar-links {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  .navbar-links .li-nav {
+    width: 100%;
+  }
+
+  .navbar-links .li-nav .a-nav {
+    display: block;
+    width: 100%;
+    line-height: normal; /* resetta per mobile */
+    padding: 0.75rem 0;
+  }
+}
+
+
+
+
+/*==========================================Inferno==================================================*/
+
+/*body {
+  font-family: 'Lora', serif;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #1a1a1a; 
+}*/
+
+
+.decorative-line {
+  width: 60px;
+  height: 3px;
+  background-color: #7c2b20;
+  border-radius: 5px;
+}
+
+.decorative-circle {
+  width: 60px;
+  height: 60px;
+  background-color: #7c2b20;
+  border-radius: 50%;
+}
+
+.decorative-line, .decorative-circle {
+  margin: 30px auto;
+}
+
+
+
+.canti-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 50px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.canti-container::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: calc(100% - 40px);
+  height: 100%;
+  background: linear-gradient(135deg, #dceeff 0%, #ffffff 100%);
+  z-index: -1;
+  border-radius: 20px;
+  filter: blur(12px);
+  opacity: 0.25;
+}
+
+.canto-card {
+  background-color: #ffffff;
+  color: #1e2a47;
+  border-radius: 25px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  .cta-button {
+    margin-top: auto; 
+  }
+
+  .immagine-canti {
+    width: 100%;
+    max-width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .h2-canti {
+    font-family: 'Cinzel', serif;
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    color: #1e2a47;
+    text-transform: uppercase;
+  }
+
+  .p-canti {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #6c757d;
+    margin-bottom: 20px;
+  }
+
+  .p-canti-1{
+    font-size: 1rem;
+    color: #495057;
+    font-style: italic;
+    margin-bottom: 20px;
+  }
+}
+
+.canto-card:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 12px 30px;
+  background-color: #7c2b20; 
+  color: #f5f0e6; 
+  font-family: 'Lora', serif; 
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 2px solid #f5f0e6;
+  border-radius: 0; 
+  text-decoration: none;
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+}
+
+.cta-button:hover {
+  background-color: #a63c2f; 
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+/*---=====Responsive Design=====---*/
+@media (max-width: 992px) {
+  .canti-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .canto-card img {
+    max-width: 220px;
+    height: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .canti-container {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-section h1 {
+    font-size: 3rem;
+  }
+
+  .canto-card img {
+    max-width: 200px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section h1 {
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+  }
+
+  .hero-section .quote {
+    font-size: 1rem;
+  }
+
+  .canto-card h2 {
+    font-size: 1.5rem;
+  }
+
+  .canto-card p {
+    font-size: 1rem;
+  }
+
+  .cta-button {
+    font-size: 0.95rem;
+    padding: 8px 18px;
+  }
+}
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(30, 42, 71, 0.8);
+  justify-content: center;
+  align-items: center;
+  /*padding: 20px;*/
+}
+
+.modal-content {
+  background-color: #fff;
+  color: #1e2a47;
+  width: 80%;
+  max-width: 300px;
+  max-height: 80vh;
+  padding: 30px;
+  border-radius: 20px;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.modal-content h2 {
+  font-family: 'Cinzel', serif;
+  margin-bottom: 20px;
+}
+
+.modal-content p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #333;
+}
+
+.close-modal {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  font-size: 2rem;
+  color: #888;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.close-modal:hover {
+  color: #000;
+}
+
+
+/*---=====CANTO-1=====---*/
+.p-canto1{
+  margin-bottom: 15px;
+}
+
+
+/*---=====CANTO-3=====---*/
+.p-canto3{
+  margin-bottom: 15px;
+}
+
+
+
+/*---=====CANTO-5=====---*/
+.p-canto5{
+  margin-bottom: 15px;
+}
+
+
+/*---=====CANTO-6=====---*/
+.p-canto6{
+  margin-bottom: 15px;
+}
+
+
+
+
+/*---=====CANTO-10=====---*/
+.p-canto10{
+  margin-bottom: 15px;
+}
+
+
+
+/*---=====CANTO-26=====---*/
+.p-canto26{
+  margin-bottom: 15px;
+}
+
+/*==============================================DIVINA COMMEDIA=====================================*/
+
+
+#intro, #inferno, #purgatorio, #paradiso, #timeline, #biografia{
+  margin-bottom: 150px;
+}
+
+main {
+  /*max-width: 1200px;*/
+  margin: auto;
+  padding: 20px 20px 60px;
+
+  overflow-x: hidden;
+}
+
+
+
+.text {
+  line-height: 1.6;
+  text-align: justify;
+  padding: 10px 0;
+  margin: 0;
+}
+
+.citazione {
+  font-style: italic;
+  margin: 50px 0;
+  /*text-align: center;*/
+  margin-left: 20px;
+  font-size: clamp(18px, 5vw, 25px);
+  color: #bbb;
+  border-left: 4px solid #e3c48e;
+  padding-left: 20px;
+  position: relative;
+}
+
+.citazione::before {
+  /*content: "“";*/
+  font-size: 3em;
+  color: #e3c48e;
+  position: absolute;
+  left: -6px;
+  top: -30px;
+}
+
+.timeline {
+  border-left: 3px solid #e3c48e;
+  padding-left: 30px;
+  position: relative;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: -6px;
+  top: 0;
+  bottom: 0;
+  width: 12px;
+}
+
+.timeline-event {
+  margin-bottom: 40px;
+}
+
+.timeline-event h3 {
+  margin-bottom: 5px;
+  color: #e3c48e;
+}
+
+
+
+.h2-section {
+  font-size: clamp(1.5rem, 5vw, 2.5rem); /* Font dinamico che si adatta alla larghezza dello schermo */
+  color: #4a4a4a; /* Colore grigio scuro per un effetto delicato */
+  font-family: 'Merriweather', serif; /* Font elegante e classico */
+  font-weight: 300; /* Spessore leggero per un aspetto più morbido e sobrio */
+  margin-bottom: 20px; /* Distanza tra il titolo e il contenuto sottostante */
+  text-align: center; /* Allineamento al centro */
+  letter-spacing: 0.5px; /* Spaziatura tra le lettere per un tocco di eleganza */
+  text-transform: none; /* Mantieni il testo in formato normale (non tutto maiuscolo) */
+  line-height: 1.4; /* Spaziatura tra le righe per migliorare la leggibilità */
+}
+
+.h2-section_1 {
+  font-size: clamp(1.5rem, 5vw, 2.5rem); /* Font dinamico che si adatta alla larghezza dello schermo */
+  color: #4a4a4a; /* Colore grigio scuro per un effetto delicato */
+  font-family: 'Merriweather', serif; /* Font elegante e classico */
+  font-weight: 300; /* Spessore leggero per un aspetto più morbido e sobrio */
+  margin-bottom: 20px; /* Distanza tra il titolo e il contenuto sottostante */
+  margin-left: 75px;
+  letter-spacing: 0.5px; /* Spaziatura tra le lettere per un tocco di eleganza */
+  text-transform: none; /* Mantieni il testo in formato normale (non tutto maiuscolo) */
+  line-height: 1.4; /* Spaziatura tra le righe per migliorare la leggibilità */
+}
+
+
+
+
+
+.content-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  align-items: center;
+}
+
+.text {
+  flex: 1;
+  min-width: 280px;
+  font-size: 1.1em;
+  line-height: 1.7;
+}
+
+.img-box {
+  flex: 1;
+  min-width: 280px;
+  max-width: 450px;
+}
+
+.img-box img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  transition: transform 0.3s;
+}
+
+.img-box img:hover {
+  transform: scale(1.03);
+}
+
+
+
+.timeline {
+  border-left: 3px solid #e3c48e;
+  padding-left: 20px;
+}
+
+.timeline-event {
+  margin-bottom: 30px;
+}
+
+.timeline-event h3 {
+  color: #e3c48e;
+  font-size: 1.3em;
+  margin-bottom: 5px;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.card {
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  padding: 20px;
+  border-radius: 8px;
+  width: 250px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h4 {
+  color: #e3c48e;
+  margin-bottom: 10px;
+}
+
+.gallery {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding-bottom: 10px;
+}
+
+.gallery img {
+  height: 200px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+
+
+
+/*.cta-button_1 {
+  display: inline-block;
+  padding: 12px 30px;
+  background-color: #7c2b20; 
+  color: #f5f0e6; 
+  font-family: 'Lora', serif; 
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 2px solid #f5f0e6;
+  border-radius: 0; 
+  text-decoration: none;
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+  
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+
+}
+
+.cta-button_1:hover {
+  background-color: #a63c2f; 
+  color: #ffffff;
+  border-color: #ffffff;
+}*/
+
+
+
+
+
+
+
+.map-container {
+  width: 100%;
+  height: 300px;
+  background: #333;
+  margin-top: 50px;
+  position: relative;
+  border-radius: 10px;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.biography {
+  /*display: flex;*/
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.biography img {
+  border-radius: 10px;
+  max-width: 350px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+  margin-right: 40px;
+}
+
+
+/*---=====QUIZ=====---*/
+/* Contenitore che centrerà la sezione */
+.container_quiz {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  margin-top: 50px;
+}
+
+/* Stili per la sezione che contiene il paragrafo e il pulsante */
+.cta-section {
+  text-align: center; 
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  max-width: 600px; 
+  width: 100%; 
+}
+
+/* Stili per il paragrafo */
+.cta-text {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Stili per il pulsante */
+/*.cta-button {
+  background-color: #007bff; 
+  color: white;
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 5px;
+  border: none; 
+  cursor: pointer; 
+  transition: background-color 0.3s ease;
+}*/
+
+/*.cta-button:hover {
+  background-color: #0056b3; 
+}*/
+
+
+
+@media (max-width: 768px) {
+  .content-flex { flex-direction: column; }
+  nav { flex-direction: column; gap: 10px; }
+  .biography { flex-direction: column; }
+}
+
+/*=====================================Dante============================================*/
+/*.hero-section.dante-hero {
+  background: url("img/DanteHeaderCard.jpg") center/cover no-repeat;
+  padding: 100px 20px;
+  color: #fff;
+  text-align: center;
+}*/
+
+#main_dante {
+  overflow-x: hidden;
+}
+
+#intro, #vita, #pensiero{
+  margin-bottom: 150px;
+}
+
+.h2-dante {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  color: #4a4a4a;
+  font-family: "Merriweather", serif;
+  font-weight: 300;
+  margin-bottom: 20px;
+  /*margin-left: 30px;*/
+  /*text-align: center;*/
+  letter-spacing: 0.5px;
+  text-transform: none;
+  line-height: 1.4;
+}
+
+.h2-dante_curiosita {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  color: #4a4a4a;
+  font-family: "Merriweather", serif;
+  font-weight: 300;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+  text-transform: none;
+  line-height: 1.4;
+  margin-left: 35px;
+}
+
+
+
+
+.content-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+
+
+.text {
+  flex: 1;
+  min-width: 300px;
+  font-size: 1.1em;
+  line-height: 1.6;
+}
+
+.img-box {
+  flex: 1;
+  min-width: 250px;
+  max-width: 400px;
+}
+
+.img-box img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.quote {
+  font-style: italic;
+  text-align: center;
+  margin: 50px auto;
+  font-size: 1.5em;
+  color: #665544;
+  border-left: 4px solid #e3c48e;
+  padding-left: 20px;
+  max-width: 800px;
+}
+
+.timeline {
+  border-left: 3px solid #e3c48e;
+  /*margin-left: 40px;*/
+  padding-left: 30px;
+}
+
+
+
+
+.timeline-event {
+  margin-bottom: 30px;
+}
+
+.timeline-event h3 {
+  color: #8b5e3c;
+  margin-bottom: 5px;
+}
+
+.curiosities {
+  list-style-type: none;
+  padding: 0 20px;
+  
+  /*max-width: 800px;*/
+  margin: auto;
+}
+
+.curiosities li {
+  margin-bottom: 15px;
+  font-size: 1.1em;
+}
+
+.cta {
+  text-align: center;
+  margin: 60px 0;
+}
+
+.cta a {
+  background-color: #8b5e3c;
+  color: white;
+  padding: 15px 30px;
+  text-decoration: none;
+  border-radius: 30px;
+  transition: background 0.3s;
+}
+
+.cta a:hover {
+  background-color: #6f4628;
+}
+
+/*======================================footer==========================================*/
+.footer-container {
+  background-color: #d9d9da;
+  font-family: Arial, sans-serif;
+}
+
+.custom-footer {
+  margin: 0 auto;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.description {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+.footer-title {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.footer-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.footer-nav li a {
+  text-decoration: none;
+  color: #6c757d;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+.footer-nav li a:hover {
+  color: #000;
+}
+
+.footer-bottom {
+  border-top: 1px solid #ccc;
+  padding-top: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 10px;
+
+  svg {
+    width: 20px;
+    height: 20px;
+    fill: #6c757d;
+    transition: fill 0.3s, transform 0.3s;
+  }
+}
+
+svg:hover {
+  fill: #000;
+  transform: scale(1.1);
+}
+
+
